@@ -1,0 +1,14 @@
+version: "2"
+services:
+  square_container:
+    build: .
+    image: square_container/square_container
+    container_name: square_container
+    environment:
+      - FASTAPI_PORT=5555
+      - DEBUG=True
+    ports:
+      - "5552:5555"
+    volumes:
+      - .:/opt/working
+    entrypoint: python api.py
